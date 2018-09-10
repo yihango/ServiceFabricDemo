@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest ApplicationTypeName="App001Type"
-                     ApplicationTypeVersion="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="App001Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="Web1_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
     <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
+
+    <Parameter Name="ABP_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
+    <Parameter Name="ABP_InstanceCount" DefaultValue="-1" />
+    
   </Parameters>
   <!-- 从 ServicePackage 导入 ServiceManifest。ServiceManifestName 和 ServiceManifestVersion
        应与 ServiceManifest.xml 文件中定义的 ServiceManifest 元素的
@@ -18,6 +18,15 @@
       <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="[Web1_ASPNETCORE_ENVIRONMENT]" />
     </EnvironmentOverrides>
   </ServiceManifestImport>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="AbpPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <EnvironmentOverrides CodePackageRef="code">
+      <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="[ABP_ASPNETCORE_ENVIRONMENT]" />
+    </EnvironmentOverrides>
+  </ServiceManifestImport>
+
   <DefaultServices>
     <!-- 在创建此应用程序类型时，以下部分
          将创建服务类型的实例。你还可以使用 ServiceFabric PowerShell 模块创建
@@ -26,6 +35,12 @@
          以下属性 ServiceTypeName 必须与导入的 ServiceManifest.xml 文件中所定义的名称相匹配。 -->
     <Service Name="Web1" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+
+    <Service Name="ABP" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="ABPType" InstanceCount="[ABP_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
     </Service>
