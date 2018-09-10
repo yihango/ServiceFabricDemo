@@ -328,3 +328,4 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/ABP/ABP_CORE_MPA.Web.Host/App_Data/Logs/Logs.txt

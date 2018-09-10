@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/App001" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
+    <Parameter Name="SPAHost_ASPNETCORE_ENVIRONMENT" Value="Development" />
+    <Parameter Name="SPAHost_InstanceCount" Value="1" />
     <Parameter Name="Web1_ASPNETCORE_ENVIRONMENT" Value="Development" />
     <Parameter Name="Web1_InstanceCount" Value="1" />
     <Parameter Name="ABP_ASPNETCORE_ENVIRONMENT" Value="Development" />

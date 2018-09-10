@@ -1,12 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <!--<TargetFramework>netcoreapp2.1</TargetFramework>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>ABP_CORE_MPA.Web.Host</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>ABP_CORE_MPA.Web.Host</PackageId>
-    <UserSecretsId>AbpCompanyName-ABP_CORE_MPA-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>
+    <UserSecretsId>AbpCompanyName-ABP_CORE_MPA-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>-->
+
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
+    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+    <TargetLatestRuntimePatch>False</TargetLatestRuntimePatch>
+
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="wwwroot\swagger\ui\index.html" />
@@ -41,6 +47,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
     <PackageReference Include="Abp.Castle.Log4Net" Version="3.8.1" />
+    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.2.176" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
@@ -52,4 +59,5 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1Staging_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

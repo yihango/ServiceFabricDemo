@@ -32,7 +32,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ABP\ABP_CORE_MPA.Web.Host\ABP_CORE_MPA.Web.Host.csproj" />
     <ProjectReference Include="..\ABP\ABP_CORE_MPA.Web.Mvc\ABP_CORE_MPA.Web.Mvc.csproj" />
+    <ProjectReference Include="..\SPAHost\SPAHost.csproj" />
     <ProjectReference Include="..\Web1\Web1.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
